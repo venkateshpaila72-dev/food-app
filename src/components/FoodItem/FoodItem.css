@@ -62,3 +62,7 @@
 .food-item-counter p{
     color: darkred;
 }
+.food-item-counter img{
+    width: 30px;
+    
+}

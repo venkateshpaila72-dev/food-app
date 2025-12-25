@@ -23,7 +23,7 @@
 background: transparent;
 font-size: 16px;
 color: #49557e;
-border: ipx solid tomato;
+border: 1px solid tomato;
 padding: 10px 30px;
 border-radius: 50px;
 cursor: pointer;
@@ -52,4 +52,65 @@ transition: 0.3s;
     border-radius: 5px;
     top:-8px;
     right: -8px;
+}
+@media(max-width:1050px){
+  .navbar .logo{
+    width: 140px;
+  }
+  .navbar-menu{
+    gap: 20px;
+    font-size: 17px;
+  }
+  .navbar-right{
+    gap: 30px;
+  }
+  .navbar-right img{
+    width: 22px;
+  }
+  .navbar-right button{
+    padding: 8px 25px;
+
+  }
+}
+@media(max-width:900px){
+  .navbar .logo{
+    width: 120px;
+  }
+  .navbar-menu{
+    gap: 15px;
+    font-size: 16px;
+  }
+  .navbar-right{
+    gap: 20px;
+  }
+  .navbar-right img{
+    width: 20px;
+  }
+  .navbar-right button{
+    padding: 7px 20px;
+    font-size: 15px;
+  }
+}
+@media(max-width:600px){
+  .navbar{
+    flex-direction: column;
+    gap: 15px;
+  }
+  .navbar .logo{
+    width: 100px;
+  }
+  .navbar-menu{
+    gap: 10px;
+    font-size: 14px;
+  }
+  .navbar-right{
+    gap: 15px;
+  }
+  .navbar-right img{
+    width: 18px;
+  }
+  .navbar-right button{
+    padding: 6px 15px;
+    font-size: 13px;
+  }
 }
