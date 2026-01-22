@@ -34,7 +34,7 @@ const placeOrder = async (req,res) => {
 
         line_items.push({
             price_data:{
-                currency:"USD",
+                currency:"inr",
                 product_data:{
                     name:"Delivery Charges"
                 },
@@ -56,4 +56,32 @@ const placeOrder = async (req,res) => {
     }
 }
 
-export {placeOrder}
+const verifyOrder = async (req,res) => {
+    const {orderId,success}=req.body;
+    try{
+        if(success=='true'){
+            await orderModel.findByIdAndUpdate(orderId,{payment:true});
+            res.json({success:true,message:"Paid"})
+        }
+        else{
+            await orderModel.findByIdAndDelete(orderId);
+            res.json({success:false,message:"Not Paid"})
+        }
+    }catch(err){
+        console.log(err)
+        res.json({success:false,message:"Error"})
+    }
+}
+
+//user orders for front end
+const usersOrder = async (req,res) => {
+    try{
+        const orders = await orderModel.find({userId:req.body.userId});
+        res.json({success:true,data:orders})
+    }catch(err){
+        console.log(err)
+        res.json({success:false,message:"Error"})
+    }
+}
+
+export {placeOrder,verifyOrder,usersOrder}
